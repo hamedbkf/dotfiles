@@ -1,0 +1,67 @@
+
+# Volume Controls: inc, dec
+super + {F2, F3}
+    pamixer --allow-boost {-d 5, -i 5} && pkill -RTMIN+2 slstatus
+# Mute volume
+super + F4
+    pamixer -t && pkill -RTMIN+2 slstatus
+
+
+# Display brightness
+super + {F5, F6}
+    ddcutil setvcp 10 {- 10, + 10}
+    #brightnessctl set {10%-, +10%}
+# Go to extreme opposite brightness of current
+super + F7
+    brightflip desktop
+    #brightflip laptop
+
+
+# Yellow light, Blue light using redshift
+super + shift + {F5, F6}
+    redshift -O {5000, 15000}
+# Reset to default
+super + shift + F7
+    redshift -x
+    
+
+
+# Screenshot.. stuff.. duh
+Print
+    screenshot full
+
+shift + Print
+    screenshot select
+
+ctrl + Print
+    screenshot window
+
+
+# Session and Power system commands
+super + Delete
+    dmenu_power
+
+# Dictionary
+super + n
+    dmenu_dict
+
+# Clipboard history
+super + c
+    clipmenu
+
+# Emoji picker
+super + grave
+    dmenu_unicode
+
+
+# Launch empty vim
+super + e
+    $TERMINAL -e vim
+
+
+
+# Keyboard Language signal (TODO)
+# ctrl + super
+#     ?? doesn't work in parallel with setxkbmap
+#     pkill -RTMIN+3 slstatus
+

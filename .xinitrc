@@ -2,7 +2,7 @@
 xsetroot -solid "#ffffff"
 xset s off -dpms
 
-sxhkd &
+sxhkd -c $HOME/.sxhkd &
 slstatus &
 dunst &
 unclutter &
