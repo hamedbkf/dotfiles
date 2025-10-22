@@ -1,0 +1,30 @@
+#!/bin/sh 
+
+using_ddcutil() {
+    b=$(ddcutil getvcp 10 2>/dev/null | awk '{print $9}' | sed 's/,//') 
+
+    [ "${#b}" -gt 3 ] && exit 0
+
+        if [ "$b" -gt "40" ]; then
+            ddcutil setvcp 10 0
+        else
+            ddcutil setvcp 10 100
+        fi
+}
+
+using_brightnessctl() {
+    b=$(brightnessctl | grep Current | awk '{print $4}' | sed 's/[()%]//g') 
+
+    [ "${#b}" -gt 3 ] && exit 0
+
+        if [ "$b" -gt "40" ]; then
+            brightnessctl set 0%
+        else
+            brightnessctl set 100%
+        fi
+}
+
+case $1 in
+    'desktop') using_ddcutil ;;
+    'laptop') using_brightnessctl ;;
+esac
