@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case "$1" in
+    "full") scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f' || exit ;;
+    "select") scrot '/tmp/%F_%T_$wx$h.png' --freeze -s -e 'xclip -selection clipboard -target image/png -i $f' || exit ;;
+    "window") scrot '/tmp/%F_%T_$wx$h.png' --focused --border -e 'xclip -selection clipboard -target image/png -i $f' || exit ;;
+    *) exit ;;
+esac
+
+notify-send "Screenshot copied to clipboard." &
