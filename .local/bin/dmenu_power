@@ -1,0 +1,13 @@
+#!/bin/sh
+
+RET=$(echo -e "lock\nsuspend\nlocknsuspend\nshutdown\nreboot\nlogout\ncancel" | dmenu )
+
+case $RET in
+    'lock') setsid -f slock ;;
+    'suspend') systemctl suspend ;;
+    'locknsuspend') setsid -f slock; systemctl suspend ;;
+	'shutdown') sudo shutdown now ;;
+	'reboot') sudo reboot ;;
+	'logout') pkill -9 Xorg ;;
+	*) ;;
+esac
