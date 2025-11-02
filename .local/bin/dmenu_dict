@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# this script uses dict output piped to less in a terminal window-
+# to offer what i find to be the best simplest dictionary utility one can have.
+
+RET=$(echo -e "selection\nclipboard\ncancel" | dmenu)
+
+case $RET in
+    'selection') WORD=$(xsel) ;;
+    'clipboard') WORD=$(xclip -o) ;;
+    *)           WORD=$RET
+esac
+
+
+# +g runs g on start which goes to the top of the buffer
+dict_command='dict "$1" | less +g'
+
+# launch terminal, change title to dict, set size to WxH, open bash, run dict_command, pass WORD as arg1 to it
+[ "$WORD" != "cancel" ] && setsid -f "$TERMINAL" -t dict -n spterm -g 80x40 -e bash -c "$dict_command" bash "$WORD"
