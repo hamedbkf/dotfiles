@@ -1,5 +1,9 @@
 #!/bin/sh 
 
+# this script flips display/monitor brightness from min to max.
+# the command used to achieve this differs between laptop displays and monitors.
+# so arg1($1) is used to manually specify it.
+
 using_ddcutil() {
     b=$(ddcutil getvcp 10 2>/dev/null | awk '{print $9}' | sed 's/,//') 
 
