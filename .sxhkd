@@ -37,6 +37,11 @@ ctrl + Print
     screenshot window
 
 
+# Recording stuff
+super + F12
+    dmenu_record
+
+
 # Session and Power system commands
 super + Delete
     dmenu_power

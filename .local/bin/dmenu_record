@@ -1,0 +1,25 @@
+#!/bin/sh
+
+function record(){
+    setsid -f ffmpeg \
+    -f x11grab \
+    -framerate 30 \
+    -s $dimensions \
+    -i "$DISPLAY" \
+    -c:v libx264 \
+    -qp 0 -r 30 \
+    "$HOME/recordings/video-$(date '+%y%m%d-%H%M-%S').mkv";
+
+    notify-send "started recording";
+}
+
+RET=$(echo -e "stop\nrecord\ncancel" | dmenu )
+
+dimensions=$(xrandr | grep '*' | awk '{print $1}')
+
+case $RET in
+    'stop') pkill ffmpeg && notify-send "stopped recording" ;;
+    'record') record ;;
+	*) ;;
+esac
+
