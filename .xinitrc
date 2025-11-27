@@ -8,6 +8,9 @@ dunst &
 unclutter &
 clipmenud &
 
+xdg-desktop-portal-gtk &
+crond &
+
 remaps &
 
 while true
