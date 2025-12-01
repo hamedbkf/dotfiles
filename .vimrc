@@ -43,7 +43,7 @@ set background=light
 
 hi Normal  ctermbg=White
 
-hi Comment ctermfg=DarkBlue
+hi Comment cterm=NONE ctermfg=Blue
 hi String  ctermfg=DarkGreen
 
 hi LineNr  ctermfg=Grey
