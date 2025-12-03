@@ -53,5 +53,4 @@ hi Search     ctermfg=DarkCyan
 hi IncSearch  ctermfg=214
 hi CurSearch     ctermfg=214
 
-hi MatchParen ctermfg=White ctermbg=Brown
-
+hi MatchParen cterm=bold,underline ctermfg=Brown ctermbg=White
