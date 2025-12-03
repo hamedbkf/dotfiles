@@ -8,7 +8,8 @@ export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 export VISUAL="st -e vim"
-export GTK_THEME="Adwaita"
+export GTK_THEME="athena-gtk"
+
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
