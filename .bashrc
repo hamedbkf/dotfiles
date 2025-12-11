@@ -10,7 +10,7 @@ stty -ixon
 
 # Better history defaults and settings for size and to sync between different open shells
 export HISTFILE=~/.bash_history
-export HISTSIZE=10000
+export HISTSIZE=100000
 export HISTFILESIZE="${HISTSIZE}"
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
@@ -22,6 +22,4 @@ enable_color grep
 enable_color diff
 enable_color ls
 enable_color ip
-
-alias vi=vim
 
