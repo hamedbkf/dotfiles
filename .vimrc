@@ -25,8 +25,7 @@ set showcmd
 set nostartofline
 set backspace=indent,eol,start
 set confirm
-
-set iskeyword-=_
+set hidden
 
 set timeoutlen=1000 ttimeoutlen=0
 
@@ -46,11 +45,10 @@ hi Normal  ctermbg=White
 hi Comment cterm=NONE ctermfg=Blue
 hi String  ctermfg=DarkGreen
 
-hi LineNr  ctermfg=Grey
 hi NonText ctermfg=Grey
 
 hi Search     ctermfg=DarkCyan
 hi IncSearch  ctermfg=214
-hi CurSearch     ctermfg=214
+hi CurSearch  ctermfg=214
 
 hi MatchParen cterm=bold,underline ctermfg=Brown ctermbg=White
